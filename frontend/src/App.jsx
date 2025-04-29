@@ -1,15 +1,18 @@
-import Commoncard from "./components/commoncard"
-
-function App() {
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import MarketStatusPage from './pages/MarketStatus';
+import './App.css';
+const App = () => {
   return (
-    <>
-      <Commoncard symbol={"ONGC"} />
-      <Commoncard symbol={"TATASTEEL"} />
-      <Commoncard symbol={"BSE"} />
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/market-status" element={<MarketStatusPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-    </>
-  )
-}
-
-export default App
+export default App;
